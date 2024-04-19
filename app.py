@@ -1,16 +1,16 @@
 import time
-import gdown
 from typing import List, Tuple, Optional
 
 import google.generativeai as genai
 import gradio as gr
 from PIL import Image
+from model_interface import preprocess_trained_model
 
 print("google-generativeai:", genai.__version__)
 
-url ="https://drive.google.com/file/d/1u7GahUbk5uoTRItzUbSp7q_YYKoEo3w_/view?usp=drive_link"
-output = 'model.pt'
-gdown .download(url,output,quiet=False)
+# url ="https://drive.usercontent.google.com/download?id=1u7GahUbk5uoTRItzUbSp7q_YYKoEo3w_&authuser=0"
+# output = './model/model.pt'
+# gdown.download(url,output,quiet=False)
 
 TITLE = """<h1 align="center">Gemini Gradio App</h1>"""
 SUBTITLE = """<h2 align="center">Run with Gemini Pro Vision API</h2>"""
@@ -41,7 +41,12 @@ def bot(
     chatbot: List[Tuple[str, str]]
 ):
 
-    text_prompt = chatbot[-1][0]
+    #text_prompt = chatbot[-1][0]
+    text_prompt = ""
+    for i in range(len(chatbot)):
+        text_prompt += str(chatbot[i][0]) + ' '
+        if i != len(chatbot) - 1:
+            text_prompt += str(chatbot[i][1]) + ' '
     genai.configure(api_key=GOOGLE_API_KEY)
     generation_config = genai.types.GenerationConfig(
         temperature=temperature,
@@ -90,11 +95,26 @@ chatbot_component = gr.Chatbot(
     avatar_images=AVATAR_IMAGES,
     scale=2
 )
+
+chatbot_component_trained = gr.Chatbot(
+    label='our model',
+    bubble_full_width=False,
+    avatar_images=AVATAR_IMAGES,
+    scale=2
+)
+
 text_prompt_component = gr.Textbox(
     placeholder="Hi there!",
     label="Ask me anything and press Enter"
 )
+
+text_prompt_component_trained = gr.Textbox(
+    placeholder="Hi there!",
+    label="Ask me anything and press Enter by our model"
+)
+
 run_button_component = gr.Button()
+run_button_component_trained = gr.Button()
 temperature_component = gr.Slider(
     minimum=0,
     maximum=1.0,
@@ -158,6 +178,11 @@ user_inputs = [
     chatbot_component
 ]
 
+user_inputs_trained = [
+    text_prompt_component_trained,
+    chatbot_component_trained
+]
+
 bot_inputs = [
     image_prompt_component,
     temperature_component,
@@ -168,16 +193,21 @@ bot_inputs = [
     chatbot_component
 ]
 
+bot_trained_inputs = [
+    chatbot_component_trained
+]
+
 with gr.Blocks() as demo:
     gr.HTML(TITLE)
     gr.HTML(SUBTITLE)
     with gr.Column():
-        google_key_component.render()
         with gr.Row():
             image_prompt_component.render()
             chatbot_component.render()
         text_prompt_component.render()
-        run_button_component.render()
+        with gr.Row():
+            run_button_component.render()
+            claer_gemini = gr.Button("clear")
         with gr.Accordion("Parameters", open=False):
             temperature_component.render()
             max_output_tokens_component.render()
@@ -185,6 +215,11 @@ with gr.Blocks() as demo:
             with gr.Accordion("Advanced", open=False):
                 top_k_component.render()
                 top_p_component.render()
+        chatbot_component_trained.render()
+        text_prompt_component_trained.render()
+        with gr.Row():
+            run_button_component_trained.render()
+            clear = gr.Button('clear')
 
     run_button_component.click(
         fn=user,
@@ -194,6 +229,18 @@ with gr.Blocks() as demo:
     ).then(
         fn=bot, inputs=bot_inputs, outputs=[chatbot_component],
     )
+
+    run_button_component_trained.click(
+        fn=user,
+        inputs=user_inputs_trained,
+        outputs=[text_prompt_component_trained, chatbot_component_trained],
+        queue=False
+    ).then(
+        fn=preprocess_trained_model, inputs=bot_trained_inputs, outputs=[chatbot_component_trained],
+    )
+
+    clear.click(lambda: None, None, chatbot_component_trained, queue=False)
+    claer_gemini.click(lambda: None, None, chatbot_component, queue=False)
 
     text_prompt_component.submit(
         fn=user,
