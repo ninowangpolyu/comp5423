@@ -1,4 +1,5 @@
 import time
+import gdown
 from typing import List, Tuple, Optional
 
 import google.generativeai as genai
@@ -6,6 +7,10 @@ import gradio as gr
 from PIL import Image
 
 print("google-generativeai:", genai.__version__)
+
+url ="https://drive.google.com/file/d/1u7GahUbk5uoTRItzUbSp7q_YYKoEo3w_/view?usp=drive_link"
+output = 'model.pt'
+gdown .download(url,output,quiet=False)
 
 TITLE = """<h1 align="center">Gemini Gradio App</h1>"""
 SUBTITLE = """<h2 align="center">Run with Gemini Pro Vision API</h2>"""
