@@ -5,16 +5,17 @@ import json
 from typing import List, Tuple, Optional
 import time
 
-model_path = './model/model.pt'
-output_dir = './model'
-print("Loading model...")
-print("Model path:", model_path)
-model = torch.load(model_path, map_location=torch.device('cpu'))
-print("Model loaded.")
-tokenizer = BertTokenizer.from_pretrained(output_dir, do_lower_case=False)
-print("Tokenizer loaded.")
+# model_path = './model/model.pt'
+# output_dir = './model'
+# print("Loading model...")
+# print("Model path:", model_path)
+# model = torch.load(model_path, map_location=torch.device('cpu'))
+# print("Model loaded.")
+# tokenizer = BertTokenizer.from_pretrained(output_dir, do_lower_case=False)
+# print("Tokenizer loaded.")
 
-def get_resp(encoded_input):
+
+def get_resp(encoded_input, tokenizer, model):
     with torch.no_grad():
         output = model.bart.generate(
             input_ids=encoded_input['input_ids'].to('cpu'),
@@ -37,7 +38,7 @@ def preprocess_trained_model(chatbot: List[Tuple[str, str]]):
             text_prompt += str(chatbot[i][1]) + ' '
     print(text_prompt)
     encoded_input = tokenizer(text_prompt, padding=True, truncation=True, return_tensors="pt")
-    res_trained = get_resp(encoded_input)
+    res_trained = get_resp(encoded_input, tokenizer, model)
     res_trained = res_trained.replace(" ", "")
 
     chatbot[-1][1] = ""
@@ -47,6 +48,14 @@ def preprocess_trained_model(chatbot: List[Tuple[str, str]]):
             chatbot[-1][1] += section
             time.sleep(0.01)
             yield chatbot
+
+def preprocess_our_model(prompt, tokenizer, model):
+
+    conversation_string = "".join(prompt)
+    encoded_input = tokenizer(conversation_string, padding=True, truncation=True, return_tensors="pt")
+    res_trained = get_resp(encoded_input, tokenizer, model)
+    res_trained = res_trained.replace(" ", "")
+    return res_trained
 
     # if __name__ == '__main__':
     # model_path = './model/model.pt'
