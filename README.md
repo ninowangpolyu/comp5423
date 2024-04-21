@@ -13,7 +13,7 @@ You can quickly install the package in requirement.txt through the command line 
 pip install requirement.txt
 ```
 
-If you want to use our model function please download the model by this [link](https://drive.google.com/file/d/1u7GahUbk5uoTRItzUbSp7q_YYKoEo3w_/view?usp=drive_link)
+If you want to use our model function please download the model by this [link](https://drive.google.com/file/d/1u7GahUbk5uoTRItzUbSp7q_YYKoEo3w_/view?usp=drive_link). And put the .pt file into ./model
 
 ### Start the chatbot command
 
@@ -53,6 +53,6 @@ generation_config = genai.types.GenerationConfig(
 Below is `Clear History Information`. This button will immediately clean up the historical information of the current chatbot. As shown in the figure below, the picture on the left shows the question and answer through the model, and the picture on the right directly clears the historical information.
 
 <center class="half">
-    <img src="./img/image-20240420221600432.png" width="400"/><img src="./img/image-20240420221805972.png" width="400"/>
+    <img src="./img/image-20240420221600432.png" width="500"/><img src="./img/image-20240420221805972.png" width="500"/>
 </center>
 
