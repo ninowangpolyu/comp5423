@@ -7,6 +7,20 @@ In this project, we implemented all the project task, including using a pre-trai
 
 ### Environmental setup and preparation 
 
+#### 1. To train the model:
+Enter the dictionary of unimind-n
+```
+cd Model-train
+cd unimind-n
+```
+Run the train.py, you can adjust the params to fit your device
+```
+python train.py --do_train --do_finetune --do_pipeline --beam_size=1 --warmup_steps=400 --max_seq_length=512 --max_target_length=100 --gpu=0 --overwrite_output_dir --per_gpu_train_batch_size=10 --per_gpu_eval_batch_size=10 --data_name=durecdial
+```
+Finally you can get the saved trained model in the model dictionary, which named model.pt
+
+#### 2. How to run the dialog system
+
 You can quickly install the package in requirement.txt through the command line code below.
 
 ```

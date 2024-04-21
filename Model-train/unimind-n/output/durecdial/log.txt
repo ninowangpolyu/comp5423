@@ -1,0 +1,513 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_train_bart-base-chinese_512_100
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/generation_config.json HTTP/1.1" 404 0
+INFO:root:Training/evaluation parameters Namespace(data_name='durecdial', model_name_or_path='fnlp/bart-base-chinese', output_dir='output/durecdial', data_dir='../data', cache_dir='./projdata1/bert', do_train=True, do_eval=False, do_pipeline=True, do_finetune=True, evaluate_during_training=False, overwrite_output_dir=True, overwrite_cache=False, do_lower_case=True, max_seq_length=512, max_target_length=100, beam_size=1, seed=42, gpu='0', per_gpu_train_batch_size=10, per_gpu_eval_batch_size=10, num_train_epochs=1, num_ft_epochs=1, gradient_accumulation_steps=1, warmup_steps=400, learning_rate=5e-05, weight_decay=0.01, adam_epsilon=1e-08, max_grad_norm=1.0, device=device(type='cuda', index=0), device_id=[0], item_num=1622)
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 4
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 15208
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9316955177311815, 0.9482874170234588, 0.9347035226023792]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9148622760691725, 0.914782023402713, 0.9146647468486543, 0.9184011597804701, 0.9199026612819716, 0.9199026612819716]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.7583832696957061, 0.7661978234097024, 0.745283003462016, 0.7469982582338031]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.298138834017966, 0.4712032731513649, 0.38748715467588074, 0.9234185587370758, 0.9904893132791185, 0.006830998771287827, 0.06475945746949158, 0.5093024793252675]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root: global_step = 15208, average loss = nan
+INFO:root: Fine-tuning task goal
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9327115465644743, 0.9470711873601166, 0.9350461905084728]
+INFO:root:Saving model checkpoint to output/durecdial/goal/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task know
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9395956301128714, 0.9398622760691726, 0.9395752073912979, 0.9425805115460287, 0.9454281868074972, 0.9454281868074972]
+INFO:root:Saving model checkpoint to output/durecdial/know/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task item
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 762
+INFO:root:training for epoch 0 ...
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.8393993268066431, 0.8429499400309169, 0.8338482809676225, 0.8345992615185567]
+INFO:root:Saving model checkpoint to output/durecdial/item/best_checkpoint
+INFO:root: global_step = 762, average loss = 1.5854746539761702
+INFO:root: Fine-tuning task resp
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_train_bart-base-chinese_512_100
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/generation_config.json HTTP/1.1" 404 0
+INFO:root:Training/evaluation parameters Namespace(data_name='durecdial', model_name_or_path='fnlp/bart-base-chinese', output_dir='output/durecdial', data_dir='../data', cache_dir='./projdata1/bert', do_train=True, do_eval=False, do_pipeline=True, do_finetune=True, evaluate_during_training=False, overwrite_output_dir=True, overwrite_cache=False, do_lower_case=True, max_seq_length=512, max_target_length=100, beam_size=1, seed=42, gpu='0', per_gpu_train_batch_size=10, per_gpu_eval_batch_size=10, num_train_epochs=10, num_ft_epochs=1, gradient_accumulation_steps=1, warmup_steps=400, learning_rate=5e-05, weight_decay=0.01, adam_epsilon=1e-08, max_grad_norm=1.0, device=device(type='cuda', index=0), device_id=[0], item_num=1622)
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 4
+INFO:root:  Num Epochs = 10
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 152080
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9223721769296399, 0.9310213740400366, 0.9206211219583554]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9104708156432294, 0.9107176141658899, 0.9103764684224445, 0.9130682406544476, 0.9160194677436057, 0.9160194677436057]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.7786165363219505, 0.7852399826627026, 0.7653147930411301, 0.7668259947303996]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.2730748156797619, 0.4456985105928641, 0.36159835330473444, 0.9289943097629877, 0.9903138064675322, 0.007105708601842379, 0.07078917639273793, 0.4914275238934419]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 1 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9323385662692913, 0.9441982359379341, 0.9329678013404779]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9253926340133235, 0.9246349798073933, 0.9248384673672023, 0.9279797038417729, 0.9303096199647923, 0.9303096199647923]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.8634863471024272, 0.8661958702916583, 0.8592344916933394, 0.8597623042173558]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.29937229585657654, 0.4635018713156133, 0.38467214365338986, 0.9239172840485107, 0.9920776457578381, 0.007208065495320045, 0.06917559364454606, 0.5101418880030261]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 2 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9419863190893338, 0.9199113853207614, 0.9214119343834057]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.935254219736978, 0.9348969659314484, 0.9349583573721495, 0.9384384384384384, 0.9404576990783887, 0.9404576990783887]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.875834054657376, 0.8784831612612444, 0.8719001077797375, 0.8725104517529382]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.3086574887893366, 0.46940391916225355, 0.3928974110683578, 0.9303327606945004, 0.9912451983609567, 0.0071999698879084625, 0.06787812790478805, 0.5254688421400033]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 3 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9349417004954214, 0.9507697672168149, 0.9379056783244205]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9421050360705531, 0.9418504711608157, 0.9418544981763369, 0.9440820130475303, 0.9475509992751372, 0.9475509992751372]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.8933407834426661, 0.894626357582907, 0.8905826093583296, 0.8908583614608213]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.32294312339890474, 0.48679480574319384, 0.4090626632263622, 0.921362212677506, 0.9926464896971926, 0.007164422166691402, 0.07011121511795401, 0.5313661107741469]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 4 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9356106058384229, 0.9422964839722949, 0.9346232338775354]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9445868282075175, 0.9449984467225842, 0.9445344359137444, 0.9481205343274309, 0.9502433467950709, 0.9502433467950709]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.8966672158874714, 0.8974010930894477, 0.8933426960175931, 0.8934882101852307]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.32145604704914554, 0.4860007388488025, 0.4080962198063898, 0.9301104226073531, 0.9926448793640213, 0.007176548288102623, 0.07234334961145822, 0.5361201695458011]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 5 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9389597825393888, 0.9134001789271551, 0.9198658591421691]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.946595733664699, 0.9465776120948534, 0.9464303383843603, 0.9487936212074143, 0.9517966242104173, 0.9517966242104173]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9000626147850368, 0.9008682982738406, 0.8973672893940382, 0.8975643478883659]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.3358031690423706, 0.5001756282731448, 0.42257240686383546, 0.9289144305800703, 0.9919708581853618, 0.00702972877647891, 0.07334204244690283, 0.5449822372576392]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 6 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9385301363837657, 0.9515434753213514, 0.9409906313980114]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9474759242000619, 0.9480842911877393, 0.9475011957770559, 0.9508646577612094, 0.9532981257119189, 0.9532981257119189]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9021272262577086, 0.9028617108632253, 0.8997856652949248, 0.8999324075247148]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.34651003113835976, 0.5111562402419193, 0.4333281382467365, 0.9219917288695533, 0.992380234846833, 0.007048609618595169, 0.07750149511389456, 0.548985201836039]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 7 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9404614310523647, 0.9493493292008001, 0.9400394236252657]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9508905457181317, 0.9503727865796827, 0.9505355108803378, 0.9533499016257637, 0.9556798177487833, 0.9556798177487833]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9038341109988328, 0.9044058403850155, 0.90191567596403, 0.9020207089432727]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.3501133554314686, 0.5187829502464676, 0.43904604330577623, 0.9218237652740505, 0.9912864455487936, 0.007048059398259441, 0.07886486361368016, 0.5495294684472289]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 8 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9391555936454223, 0.9511666752299581, 0.941006540977607]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9517577922750334, 0.9516671844258048, 0.9515500722397263, 0.9543854199026612, 0.9569224396810604, 0.9569224396810604]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9040453968600338, 0.9048376892827229, 0.902183356195702, 0.9023322787808764]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.35213441328172185, 0.5167222820626199, 0.43893576549181146, 0.9217689981711706, 0.9924037720604857, 0.007176639626246581, 0.08047016274653483, 0.5509407248523347]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root:training for epoch 9 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9386930476214304, 0.9476422181993689, 0.9396183096232166]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9520684477581027, 0.9516671844258048, 0.9517571758951062, 0.9542300921611266, 0.9568706637672155, 0.9568706637672155]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9034283522618428, 0.9042751282354706, 0.9015807694820042, 0.9017684830429984]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.35331394522651344, 0.5184991722417276, 0.4403090392024893, 0.9215614518483766, 0.9921612232902672, 0.00722697543897264, 0.0827839131834177, 0.5500905758490923]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root: global_step = 152080, average loss = nan
+INFO:root: Fine-tuning task goal
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 10
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 48160
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.940461416496822, 0.9092482606939642, 0.9129578472500028]
+INFO:root:Saving model checkpoint to output/durecdial/goal/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task know
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 10
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 48160
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9351144247695969, 0.9344568706637669, 0.9346509070647001, 0.9364191777984882, 0.9408201304753029, 0.9408201304753029]
+INFO:root:Saving model checkpoint to output/durecdial/know/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task item
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 10
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 7620
+INFO:root:training for epoch 0 ...
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9011223891777858, 0.9018087370510183, 0.8985629368345417, 0.8987123943862085]
+INFO:root:Saving model checkpoint to output/durecdial/item/best_checkpoint
+INFO:root: global_step = 762, average loss = 0.07552393594583283
+INFO:root: Fine-tuning task resp
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 10
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 48160
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.3494311133007849, 0.5184674926064688, 0.4386113088567623, 0.9189299386054747, 0.991518469677214, 0.0069805911428721685, 0.07861119876025235, 0.54272876084677]
+INFO:root:Saving model checkpoint to output/durecdial/resp/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.940461416496822, 0.9092482606939642, 0.9129578472500028]
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_train_bart-base-chinese_512_100
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/generation_config.json HTTP/1.1" 404 0
+INFO:root:Training/evaluation parameters Namespace(data_name='durecdial', model_name_or_path='fnlp/bart-base-chinese', output_dir='output/durecdial', data_dir='../data', cache_dir='./projdata1/bert', do_train=True, do_eval=False, do_pipeline=True, do_finetune=True, evaluate_during_training=False, overwrite_output_dir=True, overwrite_cache=False, do_lower_case=True, max_seq_length=512, max_target_length=100, beam_size=1, seed=42, gpu='0', per_gpu_train_batch_size=10, per_gpu_eval_batch_size=10, num_train_epochs=1, num_ft_epochs=1, gradient_accumulation_steps=1, warmup_steps=400, learning_rate=5e-05, weight_decay=0.01, adam_epsilon=1e-08, max_grad_norm=1.0, device=device(type='cuda', index=0), device_id=[0], item_num=1622)
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 4
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 15208
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9316955177311815, 0.9482874170234588, 0.9347035226023792]
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9148622760691725, 0.914782023402713, 0.9146647468486543, 0.9184011597804701, 0.9199026612819716, 0.9199026612819716]
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.7583832696957061, 0.7661978234097024, 0.745283003462016, 0.7469982582338031]
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.298138834017966, 0.4712032731513649, 0.38748715467588074, 0.9234185587370758, 0.9904893132791185, 0.006830998771287827, 0.06475945746949158, 0.5093024793252675]
+INFO:root:Saving model checkpoint to output/durecdial/best_checkpoint
+INFO:root: global_step = 15208, average loss = nan
+INFO:root: Fine-tuning task goal
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9327115465644743, 0.9470711873601166, 0.9350461905084728]
+INFO:root:Saving model checkpoint to output/durecdial/goal/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task know
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation know *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9395956301128714, 0.9398622760691726, 0.9395752073912979, 0.9425805115460287, 0.9454281868074972, 0.9454281868074972]
+INFO:root:Saving model checkpoint to output/durecdial/know/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:root: Fine-tuning task item
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 762
+INFO:root:training for epoch 0 ...
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_train_bart-base-chinese_512_100
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/generation_config.json HTTP/1.1" 404 0
+INFO:root:Training/evaluation parameters Namespace(data_name='durecdial', model_name_or_path='fnlp/bart-base-chinese', output_dir='output/durecdial', data_dir='../data', cache_dir='./projdata1/bert', do_train=True, do_eval=False, do_pipeline=True, do_finetune=True, evaluate_during_training=False, overwrite_output_dir=True, overwrite_cache=False, do_lower_case=True, max_seq_length=512, max_target_length=100, beam_size=1, seed=42, gpu='0', per_gpu_train_batch_size=10, per_gpu_eval_batch_size=10, num_train_epochs=1, num_ft_epochs=1, gradient_accumulation_steps=1, warmup_steps=400, learning_rate=5e-05, weight_decay=0.01, adam_epsilon=1e-08, max_grad_norm=1.0, device=device(type='cuda', index=0), device_id=[0], item_num=1622)
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 4
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 15208
+INFO:root:training for epoch 0 ...
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation item *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.8393993268066431, 0.8429499400309169, 0.8338482809676225, 0.8345992615185567]
+INFO:root:Saving model checkpoint to output/durecdial/item/best_checkpoint
+INFO:root: global_step = 762, average loss = 1.5854746539761702
+INFO:root: Fine-tuning task resp
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 3
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 4816
+INFO:root:training for epoch 0 ...
+WARNING:tensorboardX.x2num:NaN or Inf found in input tensor.
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation resp *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.33247806186045503, 0.5071495321715075, 0.42384343009568715, 0.9226577082344714, 0.990897532477636, 0.006599615455321512, 0.06435190226647712, 0.5313210777431925]
+INFO:root:Saving model checkpoint to output/durecdial/resp/best_checkpoint
+INFO:root: global_step = 4816, average loss = nan
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_test_bart-base-chinese_512_100
+INFO:root:***** Running evaluation goal *****
+INFO:root:  Num examples = 3
+INFO:root:  Batch size = 10
+INFO:root:[0.9327115465644743, 0.9470711873601166, 0.9350461905084728]
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:data_reader:Loading features from cached file ../data/cached_nl_durecdial_train_bart-base-chinese_512_100
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /fnlp/bart-base-chinese/resolve/main/generation_config.json HTTP/1.1" 404 0
+INFO:root:Training/evaluation parameters Namespace(data_name='durecdial', model_name_or_path='fnlp/bart-base-chinese', output_dir='output/durecdial', data_dir='../data', cache_dir='./projdata1/bert', do_train=True, do_eval=False, do_pipeline=True, do_finetune=True, evaluate_during_training=False, overwrite_output_dir=True, overwrite_cache=False, do_lower_case=True, max_seq_length=512, max_target_length=100, beam_size=1, seed=42, gpu='0', per_gpu_train_batch_size=10, per_gpu_eval_batch_size=10, num_train_epochs=1, num_ft_epochs=1, gradient_accumulation_steps=1, warmup_steps=400, learning_rate=5e-05, weight_decay=0.01, adam_epsilon=1e-08, max_grad_norm=1.0, device=device(type='cuda', index=0), device_id=[0], item_num=1622)
+INFO:root:***** Running training *****
+INFO:root:  Num examples = 4
+INFO:root:  Num Epochs = 1
+INFO:root:  Instantaneous batch size per GPU = 10
+INFO:root:  Total train batch size (w. parallel, distributed & accumulation) = 10
+INFO:root:  Gradient Accumulation steps = 1
+INFO:root:  Total optimization steps = 15208
+INFO:root:training for epoch 0 ...
